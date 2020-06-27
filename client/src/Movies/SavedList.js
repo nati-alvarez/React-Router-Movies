@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useRouteMatch} from "react-router-dom";
+import {NavLink, Link, useRouteMatch} from "react-router-dom";
 
 const SavedList = props => {
   const {url} = useRouteMatch();
@@ -7,7 +7,7 @@ const SavedList = props => {
     <div className="saved-list">
       <h3>Saved Movies:</h3>
       {props.list.map(movie => (
-        <Link to={`${url}movies/${movie.id}`} className="saved-movie">{movie.title}</Link>
+        <NavLink to={`${url}movies/${movie.id}`} className="saved-movie">{movie.title}</NavLink>
       ))}
       <Link to="/">
         <div className="home-button">Home</div>
