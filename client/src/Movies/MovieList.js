@@ -6,8 +6,7 @@ const MovieList = props => {
   const {url} = useRouteMatch();
   return (
     <div className="movie-list">
-      {props.movies.map(movie => {   
-        console.log(movie)
+      {props.movies.map(movie => {
         const { id } = movie;
         return (
           <Link to={`${url}movies/${id}`}>

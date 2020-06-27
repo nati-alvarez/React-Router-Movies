@@ -25,7 +25,11 @@ const App = () => {
   }, []);
 
   const addToSavedList = movie => {
-    setSavedList([...savedList, movie]);
+    let alreadyInList = false;
+    savedList.forEach(savedMovie=>{
+      if(savedMovie.id === movie.id) alreadyInList = true;
+    })
+    if(!alreadyInList) setSavedList([...savedList, movie]);
   };
 
   return (
@@ -36,7 +40,7 @@ const App = () => {
           <MovieList movies={movieList}/>
         </Route>
         <Route path="/movies/:id">
-          <Movie/>
+          <Movie addToSavedList={addToSavedList}/>
         </Route>
       </div>
     </Router>
